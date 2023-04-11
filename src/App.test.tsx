@@ -17,4 +17,15 @@ describe("Testes para o componente principal", () => {
         // debug()
         expect(screen.getByText("Legal :)")).toBeInTheDocument()
     })
+    test('Deve adicionar "Gostei muito da foto!" nos comentarios', () => {
+        render(<App />)
+        fireEvent.change(screen.getByTestId('comentar'), {
+            target: {
+                value: "Gostei muito da foto!"
+            }
+        }) 
+        fireEvent.click(screen.getByTestId('btn-comentar'))
+        // debug()
+        expect(screen.getByText("Gostei muito da foto!")).toBeInTheDocument()
+    })
 })
